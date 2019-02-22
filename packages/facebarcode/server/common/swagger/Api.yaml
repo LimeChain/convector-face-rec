@@ -1,0 +1,76 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: facebarcode
+  description: My cool TypeScript app
+basePath: /api/v1
+tags:
+  - name: Barcode
+    description: Simple example endpoints
+  - name: Specification
+    description: The swagger API specification
+
+consumes:
+  - application/json
+produces:
+  - application/json
+
+
+definitions:
+  ImageBody:
+    type: object
+    title: image
+    required:
+      - image
+    properties:
+      image:
+        type: string
+        example: no_stress=
+
+paths:
+  /barcode:
+    get:
+      tags:
+        - Barcode
+      description: Fetch all barcodes
+      responses:
+        200:
+          description: Returns all barcodes
+    post:
+      tags:
+        - Barcode
+      description: Create a new image barcode
+      parameters:
+        - name: image
+          in: body
+          description: an image
+          required: true
+          schema: 
+            $ref: "#/definitions/ImageBody"
+      responses:
+        200:
+          description: Returns the new barcode
+
+  /barcode/{barcode}:
+    get:
+      tags:
+        - Examples
+      parameters:
+        - name: barcode
+          in: path
+          required: true
+          description: The barcode of the Image to retrieve
+          type: string
+      responses:
+        200:
+          description: Return the Image with the specified barcode
+        404:
+          description: Image not found
+
+  /spec:
+    get:
+      tags:
+        - Specification
+      responses:
+        200:
+          description: Return the API specification
