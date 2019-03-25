@@ -15,7 +15,7 @@
     "@types/bytebuffer": "^5.0.40",
     "@worldsibu/convector-adapter-fabric": "^1.2.0",
     "@worldsibu/convector-storage-couchdb": "^1.2.0",
-    "barcode-cc": "file:./../barcode-cc",
+    "barcode-cc": "^0.1.0",
     "bluebird": "^3.5.3",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
